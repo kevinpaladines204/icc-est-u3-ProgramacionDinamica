@@ -1,9 +1,12 @@
-
+import java.lang.reflect.Array;
+import java.util.List;
+import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("\nNombre : Kevin Paladines");
-        runEjerciciosPD();
+        //runEjerciciosPD();
+        runMaze();
     }
 
     private static void runEjerciciosPD(){
@@ -22,5 +25,33 @@ public class App {
         end = System.nanoTime();
         duracion = end - start;
         System.out.println("Resultado = " + resultado + " en tiempo = " + duracion);
+    }
+
+    private static void runMaze(){
+        boolean[][] predefinedMaze = {
+            {true, true, true, true},
+            {false, true, true, true},
+            {true, true, false, false},
+            {true, true, true, true}
+        };
+
+        //CLASE Maze con variable global
+        Maze maze = new Maze(predefinedMaze);
+        System.out.println("Laberinto cargado");
+        maze.printMaze();
+
+        Cell start = new Cell(0, 0);
+        Cell end = new Cell(3, 3);
+        
+        List<MazeSolver> solvers = Arrays.asList(
+            new MazeSolverRecursivo()
+            new MazeSolverRecursivoCompleto()
+        );
+
+        MazeSolver solver = solvers.get(0);
+        List<Cell> path;
+        path = solver.getPath(maze.getGrid(), start, end);
+        System.out.println(path);
+
     }
 }
