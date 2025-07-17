@@ -6,7 +6,7 @@
 - **Asignatura:** Estructura de Datos
 - **Carrera:** Computación
 - **Estudiante:** Kevin Paladines
-- **Fecha:** 15/07/2025
+- **Fecha:** 16/07/2025
 - **Profesor:** Ing. Pablo Torres
 
 ---
@@ -26,3 +26,9 @@
 ![alt text](image-1.png)
 
 el de 100 no cargo :(
+
+- **Ejercicio 2**
+
+    **Laberintos**
+
+![alt text](image-2.png)

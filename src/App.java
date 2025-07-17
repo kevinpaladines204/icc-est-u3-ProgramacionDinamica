@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.List;
 import java.util.Arrays;
 
@@ -44,14 +43,17 @@ public class App {
         Cell end = new Cell(3, 3);
         
         List<MazeSolver> solvers = Arrays.asList(
-            new MazeSolverRecursivo()
+            new MazeSolverRecursivo(),
             new MazeSolverRecursivoCompleto()
         );
 
         MazeSolver solver = solvers.get(0);
         List<Cell> path;
         path = solver.getPath(maze.getGrid(), start, end);
-        System.out.println(path);
+        System.out.println("Recursivo: " + path);
 
+        MazeSolver solver2 = solvers.get(1);
+        List<Cell> path2 = solver2.getPath(maze.getGrid(), start, end);
+        System.out.println("Recursivo completo: " + path2);
     }
 }
