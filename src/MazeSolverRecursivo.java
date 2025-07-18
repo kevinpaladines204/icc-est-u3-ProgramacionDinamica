@@ -35,14 +35,14 @@ public class MazeSolverRecursivo implements MazeSolver {
         
         //Derecha
         if(findPath(grid, new Cell(row + 1,col), end, path)){
-            path.add(0, start);
+            path.add( start);
             return true;
         }
         
         
         //
         if(findPath(grid, new Cell(row,col + 1), end, path)){
-            path.add(0,start);
+            path.add(start);
             return true;
         }
         return false;

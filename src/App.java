@@ -1,11 +1,15 @@
 import java.util.List;
+import java.util.Set;
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("\nNombre : Kevin Paladines");
         //runEjerciciosPD();
         runMaze();
+        //runMazeBT();
+
     }
 
     private static void runEjerciciosPD(){
@@ -29,7 +33,7 @@ public class App {
     private static void runMaze(){
         boolean[][] predefinedMaze = {
             {true, true, true, true},
-            {false, true, true, true},
+            {false, true, false, true},
             {true, true, false, false},
             {true, true, true, true}
         };
@@ -51,9 +55,22 @@ public class App {
         List<Cell> path;
         path = solver.getPath(maze.getGrid(), start, end);
         System.out.println("Recursivo: " + path);
+        System.out.println();
 
         MazeSolver solver2 = solvers.get(1);
         List<Cell> path2 = solver2.getPath(maze.getGrid(), start, end);
         System.out.println("Recursivo completo: " + path2);
+        System.out.println();
+
+        MazeSolverRecursivoCompletoBT solverBT = new MazeSolverRecursivoCompletoBT();
+        List<Cell> pathBT = solverBT.getPath(maze.getGrid(), start, end);
+
+        System.out.println("\n Laberinto con celdas visitadas"); 
+        
+
+        System.out.println("\n Laberinto con el camino recorrido");
+        Set<Cell> visitedSetBT = new HashSet<>(pathBT);
+        maze.printMaze(visitedSetBT, start, end);
+        
     }
-}
+} 
